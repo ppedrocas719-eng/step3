@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISTEMA NULL // OPERAÇÃO DE CAMPO #990-X</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #040406; color: #8a90a0; font-family: 'Courier New', Courier, monospace; padding: 15px; display: flex; justify-content: center; }
+        .card { width: 100%; max-width: 900px; background: #0a0b10; border: 2px solid #ff0033; padding: 20px; box-shadow: 0 0 35px rgba(255, 0, 51, 0.2); }
+        
+        .hdr { border-bottom: 2px solid #ff0033; padding-bottom: 12px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .hdr h1 { color: #ff0033; font-size: 1.2rem; letter-spacing: 2px; }
+        .hdr-sub { font-size: 0.7rem; color: #555; }
+        .stamp { border: 1px solid #ff0033; color: #ff0033; padding: 3px 8px; font-size: 0.75rem; font-weight: bold; transform: rotate(-2deg); }
+
+        /* NAVEGAÇÃO DE ABAS EXPANDIDA */
+        .nav { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid #1a1e2b; padding-bottom: 10px; margin-bottom: 15px; }
+        .tab-btn { background: #000; color: #555; border: 1px solid #1a1e2b; padding: 8px 10px; font-family: monospace; font-size: 0.75rem; cursor: pointer; flex: 1 1 auto; text-align: center; font-weight: bold; }
+        .tab-btn.active { background: #1a1e2b; color: #00e5ff; border-color: #00e5ff; }
+        
+        .tab-pane { display: none; background: #06070a; border: 1px solid #1a1e2b; padding: 18px; margin-bottom: 15px; }
+        .tab-pane.active { display: block; }
+        
+        .title { color: #00e5ff; font-size: 0.9rem; margin-bottom: 12px; border-bottom: 1px dashed #1a1e2b; padding-bottom: 4px; font-weight: bold; }
+        .code { background: #000; border: 1px solid #141722; color: #ffcc00; padding: 10px; font-weight: bold; word-break: break-all; margin: 10px 0; font-size: 0.85rem; }
+        
+        blockquote { border-left: 3px solid #ff0033; background: rgba(255,0,51,0.03); margin: 10px 0; padding: 10px; color: #eee; font-size: 0.85rem; }
+        .sub { font-size: 0.75rem; color: #666; display: block; margin-top: 4px; }
+        
+        input[type="text"] { width: 100%; background: #000; border: 1px solid #00e5ff; color: #00ff66; padding: 12px; font-family: monospace; font-size: 0.95rem; margin-bottom: 10px; outline: none; }
+        button.action { width: 100%; background: #00e5ff; border: none; color: #000; padding: 12px; font-family: monospace; font-weight: bold; font-size: 0.95rem; cursor: pointer; }
+        button.action:hover { background: #00ff66; }
+        
+        #res { margin-top: 12px; padding: 15px; display: none; border: 1px solid #00ff66; background: rgba(0,255,102,0.04); color: #00ff66; font-size: 0.85rem; }
+        .err { border-color: #ff0033 !important; color: #ff0033 !important; background: rgba(255,0,51,0.04) !important; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="hdr">
+        <div>
+            <h1>MAPA DE INVESTIGAÇÃO DE CAMPO #990-X</h1>
+            <div class="hdr-sub">SISTEMA NULL // REGISTROS MULTI-LOCALIZAÇÃO</div>
+        </div>
+        <div class="stamp">ARQUIVO MORTO</div>
+    </div>
+
+    <!-- ABAS NAVEGÁVEIS -->
+    <div class="nav">
+        <button class="tab-btn active" onclick="go(0)">[01] FLORESTA</button>
+        <button class="tab-btn" onclick="go(1)">[02] NECROTIÇÃO</button>
+        <button class="tab-btn" onclick="go(2)">[03] CABANA</button>
+        <button class="tab-btn" onclick="go(3)">[04] LIVROS</button>
+        <button class="tab-btn" onclick="go(4)">[05] BALÍSTICA</button>
+        <button class="tab-btn" onclick="go(5)">[06] TERMINAL</button>
+    </div>
+
+    <!-- ABA 1: FLORESTA -->
+    <div class="tab-pane active">
+        <div class="title">LOCALIZAÇÃO 01: RESERVA AMBIENTAL (ZONA SUL)</div>
+        <p><strong>Coordenadas do Achado:</strong> 23°32'41.2"S 46°38'09.1"W</p>
+        <p>O corpo foi arremessado numa ravina densa. No local, a perícia encontrou marcas de pneu e pedaços de um livro queimado preso a galhos de salgueiro.</p>
+        <blockquote>
+            <strong>Registro Botânico:</strong> A vegetação nativa encontrada no casaco da vítima aponta para a região mencionada na introdução do clássico francês <em>L'Homme qui rit</em>.
+        </blockquote>
+    </div>
+
+    <!-- ABA 2: NECROTIÇÃO -->
+    <div class="tab-pane">
+        <div class="title">LOCALIZAÇÃO 02: INSTITUTO DE MEDICINA LEGAL</div>
+        <p>Amostra de sangue contaminado extraída na autópsia. Há ruído de injeção de dados (padding) em todas as posições ímpares do sequenciamento:</p>
+        <div class="code">FF-53-AA-41-BB-4E-CC-54-DD-4F-EE-53</div>
+        <span class="sub">* Pegue apenas os octetos em posições PARES (2º, 4º, 6º...), converta Hex para ASCII e obtenha a identidade da vítima.</span>
+    </div>
+
+    <!-- ABA 3: CABANA -->
+    <div class="tab-pane">
+        <div class="title">LOCALIZAÇÃO 03: CABANA ABANDONADA</div>
+        <p>Gravador de fita cassete encontrado na mesa de centro. Transcrição da última escuta:</p>
+        <blockquote>
+            <em>"...ele deixou o diário aberto na última frase do Inferno... ele repetia que o arcanjo não nos salvaria aqui dentro..."</em>
+        </blockquote>
+        <p>Na parede da cabana, estava escrito a carvão o número do capítulo final do livro de Dante Alighieri.</p>
+    </div>
+
+    <!-- ABA 4: LIVROS (PESQUISA REAL) -->
+    <div class="tab-pane">
+        <div class="title">MAPPING BIBLIOGRÁFICO (REQUER CONSULTA EXTERNA)</div>
+        <p>Para desbloquear o terminal, pesquise as seguintes obras originais na internet (Project Gutenberg / Wikisource):</p>
+
+        <blockquote>
+            <strong>1. França (Victor Hugo):</strong><br>
+            Obra: <em>L'Homme qui rit</em> — Idioma Original (Francês).<br>
+            Localize a <u>PRIMEIRA PALAVRA</u> do "Préface" escrito por Victor Hugo (Gutenberg #15879).
+        </blockquote>
+
+        <blockquote>
+            <strong>2. Itália (Dante Alighieri):</strong><br>
+            Obra: <em>A Divina Comédia: Inferno</em> — Idioma Original (Italiano).<br>
+            Vá até o <u>Canto XXXIV</u> (o último canto). Localize a <u>ÚLTIMA PALAVRA</u> do último verso em italiano (*"...e quindi uscimmo a riveder le..."*).
+        </blockquote>
+
+        <blockquote>
+            <strong>3. Brasil (Machado de Assis):</strong><br>
+            Obra: <em>Dom Casmurro</em>.<br>
+            Vá até o <u>Capítulo I</u> ("Do título"). Extraia a <u>PRIMEIRA PALAVRA</u> do texto.
+        </blockquote>
+    </div>
+
+    <!-- ABA 5: BALÍSTICA -->
+    <div class="tab-pane">
+        <div class="title">LABORATÓRIO DE BALÍSTICA</div>
+        <p>Cápsula de calibre .45 encontrada no assoalho da cabana. Gravura a laser encontrada na lateral do metal:</p>
+        <div class="code">MVAWEGF</div>
+        <span class="sub">* Cifrado usando a Cifra de Vigenère com a chave: <strong>BOT</strong>. Faça o decréscimo inverso para descobrir o codinome do suspeito.</span>
+    </div>
+
+    <!-- ABA 6: TERMINAL -->
+    <div class="tab-pane">
+        <div class="title">TERMINAL DE ENCERRAMENTO // NULL SYSTEM</div>
+        <p>Insira a credencial de liberação no padrão estrito:</p>
+        <p style="color:#fff; margin: 8px 0;"><code>PALAVRA1-PALAVRA2-PALAVRA3:SUSPEITO</code></p>
+        
+        <input type="text" id="in" placeholder="DIGITE_O_GABARITO_COMPLETO">
+        <button class="action" onclick="chk()">PROCESSAR DADOS DE CAMPO</button>
+        <div id="res"></div>
+    </div>
+</div>
+
+<script>
+    function go(idx) {
+        const p = document.querySelectorAll('.tab-pane');
+        const b = document.querySelectorAll('.tab-btn');
+        p.forEach((x, i) => x.classList.toggle('active', i === idx));
+        b.forEach((x, i) => x.classList.toggle('active', i === idx));
+    }
+
+    function chk() {
+        const v = document.getElementById("in").value.trim().toUpperCase();
+        const r = document.getElementById("res");
+
+        // GABARITO EXATO DA OPERAÇÃO:
+        // Livro 1 (Préface L'homme qui rit): PAR
+        // Livro 2 (Última palavra Canto XXXIV Inferno): STELLE
+        // Livro 3 (Primeira palavra Cap I Dom Casmurro): UMA
+        // Suspeito (MVAWEGF decifrado com chave BOT): LUCIFER
+        const gabaritoFinal = "PAR-STELLE-UMA:LUCIFER";
+
+        if (v === gabaritoFinal) {
+            r.className = "";
+            r.style.display = "block";
+            r.innerHTML = `
+                <strong>[AUTENTICAÇÃO CONCLUÍDA - SISTEMA NULL]</strong><br><br>
+                Sinal da floresta rastreado. Mapeamento finalizado com sucesso.<br><br>
+                <strong>CHAVE MESTRA DESBLOQUEADA:</strong><br>
+                <span style="color:#fff; font-size:1.1rem;">ARCANJO_NAO_PERDOOU_SANTOS_1889</span>
+            `;
+        } else {
+            r.className = "err";
+            r.style.display = "block";
+            r.innerHTML = "<strong>[ACESSO NEGADO]</strong> Incoerência nos dados periciais. Verifique as palavras dos livros e a cifra do suspeito.";
+        }
+    }
+</script>
+
+</body>
+</html>
 
